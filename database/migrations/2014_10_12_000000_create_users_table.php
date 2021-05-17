@@ -20,8 +20,19 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
+            
+            // Tambahkan field berikut di database user sesuai dengan ERD yang sudah dibuat 1
+            $table->text('address')->nullable();
+            $table->string('houseNumber')->nullable();
+            $table->string('phoneNumber')->nullable();
+            $table->string('city')->nullable();
+
+            // Tambahkan field berikut di database user 2
+            $table->string('roles')->default('USER');
+
             $table->timestamps();
         });
     }
